@@ -10,7 +10,7 @@ export const metadata = baseMetadata({
 });
 
 export default function ServiceAreaPage() {
-  const hasMap = Boolean(SITE.MAP_EMBED_HTML && SITE.MAP_EMBED_HTML.trim().length > 0);
+  const hasMap = (SITE.MAP_EMBED_HTML ?? "").trim().length > 0;
 
   return (
     <Container>
