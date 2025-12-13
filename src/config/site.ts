@@ -1,18 +1,40 @@
-export const SITE = {
+type SiteConfig = {
+  BUSINESS_NAME: string;
+  PHONE_NUMBER: string;
+  PRIMARY_CITY: string;
+  ORIGIN_LAT_LNG: { lat: number; lng: number };
+  SERVICE_RADIUS_MILES: number;
+  SAME_DAY_RADIUS_MILES: number;
+
+  BOOKING_CALENDLY_URL: string;
+  REVIEWS_EMBED_HTML: string;
+  MAP_EMBED_HTML: string;
+
+  SERVICE_CITIES: string[];
+  PRICING_PACKAGES: Array<{
+    name: string;
+    price: number;
+    note: string;
+    includes: string[];
+  }>;
+
+  BRAND_COPY: {
+    HERO_TITLE: string;
+    HERO_SUBTITLE: string;
+    HOW_IT_WORKS: Array<{ title: string; desc: string }>;
+  };
+};
+
+export const SITE: SiteConfig = {
   BUSINESS_NAME: "Watson’s Car Services",
-  PHONE_NUMBER: "+1-973-555-0199", // TODO: replace with real number
+  PHONE_NUMBER: "+1-973-555-0199",
   PRIMARY_CITY: "Newark, NJ",
-
-  // Newark, NJ (approx.)
   ORIGIN_LAT_LNG: { lat: 40.7357, lng: -74.1724 },
-
   SERVICE_RADIUS_MILES: 100,
   SAME_DAY_RADIUS_MILES: 50,
-
-  BOOKING_CALENDLY_URL: "https://calendly.com/your-calendly-link-here", // TODO
-  REVIEWS_EMBED_HTML: "", // TODO: paste Google reviews widget embed HTML
-  MAP_EMBED_HTML: "", // TODO: paste iframe HTML (or use a URL and build iframe yourself)
-
+  BOOKING_CALENDLY_URL: "https://calendly.com/your-calendly-link-here",
+  REVIEWS_EMBED_HTML: "",
+  MAP_EMBED_HTML: "",
   SERVICE_CITIES: [
     "Newark",
     "Jersey City",
@@ -30,7 +52,6 @@ export const SITE = {
     "Fort Lee",
     "Bayonne"
   ],
-
   PRICING_PACKAGES: [
     {
       name: "Comfort Clean (Interior)",
@@ -66,7 +87,6 @@ export const SITE = {
       ]
     }
   ],
-
   BRAND_COPY: {
     HERO_TITLE: "Comfort-first car care — we come to you.",
     HERO_SUBTITLE:
@@ -86,7 +106,8 @@ export const SITE = {
       }
     ]
   }
-} as const;
+};
+
 
 export const CONTACT = {
   telHref: `tel:${SITE.PHONE_NUMBER.replace(/[^+\d]/g, "")}`,
