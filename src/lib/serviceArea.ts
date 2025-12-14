@@ -23,7 +23,8 @@ export type ServiceAreaResult =
 
 export function extractZip(input: string): string | null {
   const m = input.match(/\b(\d{5})(?:-\d{4})?\b/);
-  return m ? m[1] : null;
+  const zip = m?.[1];
+  return zip ?? null;
 }
 
 export function checkServiceArea(input: string): ServiceAreaResult {
