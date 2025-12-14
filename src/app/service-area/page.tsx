@@ -10,7 +10,8 @@ export const metadata = baseMetadata({
 });
 
 export default function ServiceAreaPage() {
-  const hasMap = String(SITE.MAP_EMBED_HTML ?? "").trim().length > 0;
+  const mapEmbedHtml = SITE.MAP_EMBED_HTML ?? "";
+  const hasMap = mapEmbedHtml.trim().length > 0;
 
   return (
     <Container>
@@ -45,7 +46,7 @@ export default function ServiceAreaPage() {
             ) : (
               <div
                 className="mt-3"
-                dangerouslySetInnerHTML={{ __html: SITE.MAP_EMBED_HTML }}
+                dangerouslySetInnerHTML={{ __html: mapEmbedHtml }}
               />
             )}
           </div>
